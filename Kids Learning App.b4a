@@ -1,0 +1,245 @@
+﻿Version=6
+NumberOfModules=25
+Module1=Menu
+Module2=number
+Module3=number_writing
+Module4=alphabet
+Module5=cat_alphabet
+Module6=cat_num
+Module7=cat_fun
+Module8=scramble
+Module9=writing
+Module10=memory
+Module11=kid_video
+Module12=ayam
+Module13=quiz
+Module14=q2
+Module15=q3
+Module16=q4
+Module17=q5
+Module18=finish
+Module19=pisang
+Module20=bangau
+Module21=Intro
+Module22=categories
+Module23=Home
+Module24=about
+Module25=video
+Build1=Default,b4a.example
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: http://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="4" />~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~SetApplicationAttribute(android:largeHeap,"true")~\n~SetApplicationAttribute(android:clearTaskOnLaunch, "true")~\n~'End of default text.~\n~
+IconFile=
+NumberOfFiles=99
+File1=1.mp3
+File2=10.mp3
+File3=2.mp3
+File4=3.mp3
+File5=4.mp3
+File6=5.mp3
+File7=6.mp3
+File8=7.mp3
+File9=8.mp3
+File10=9.mp3
+File11=A.mp3
+File12=ABC Alphabet.mp3
+File13=ABC Writing.mp3
+File14=abc.mp3
+File15=about-xxl.png
+File16=alphabet.bal
+File17=alphabet_2.bal
+File18=B.mp3
+File19=b4.png
+File20=betul.mp3
+File21=bg.png
+File22=bg2.jpg
+File23=bgnew.png
+File24=black.png
+File25=black-exit-icon-th.png
+File26=book.jpg
+File27=book2.jpg
+File28=book3.jpg
+File29=booklogo.jpg
+File30=C.mp3
+File31=celebrate.mp3
+File32=click.mp3
+File33=close.png
+File34=D.mp3
+File35=E.mp3
+File36=F.mp3
+File37=finish.bal
+File38=fun.bal
+File39=G.mp3
+File40=H.mp3
+File41=help.png
+File42=help-99086_640.png
+File43=I.mp3
+File44=intro.bal
+File45=intro.mp3
+File46=intro2.mp3
+File47=intro3.mp3
+File48=J.mp3
+File49=K.mp3
+File50=Kids Alphabet.mp3
+File51=Kids Fun.mp3
+File52=Kids Memory.mp3
+File53=Kids Number.mp3
+File54=Kids Quiz.mp3
+File55=Kids Scramble.mp3
+File56=Kids Song.mp3
+File57=L.mp3
+File58=Layout2.bal
+File59=M.mp3
+File60=main.bal
+File61=match - Copy (2).bal
+File62=match - Copy.bal
+File63=match.bal
+File64=N.mp3
+File65=normal.jpg
+File66=num_2.bal
+File67=Number Writing.mp3
+File68=number.bal
+File69=Number.mp3
+File70=number_writing.bal
+File71=O.mp3
+File72=P.mp3
+File73=Q.mp3
+File74=q2.bal
+File75=q2.bas
+File76=q3.bal
+File77=q3.bas
+File78=q4.bal
+File79=q4.bas
+File80=q5.bal
+File81=q5.bas
+File82=R.mp3
+File83=S.mp3
+File84=scramble.bal
+File85=song.bal
+File86=T.mp3
+File87=tak betul.mp3
+File88=test.bal
+File89=U.mp3
+File90=upin1.MP4
+File91=upin2.MP4
+File92=upin3.MP4
+File93=upinipin.mp3
+File94=V.mp3
+File95=W.mp3
+File96=writing.bal
+File97=X.mp3
+File98=Y.mp3
+File99=Z.mp3
+NumberOfLibraries=13
+Library1=core
+Library2=tts
+Library3=stringutils
+Library4=sql
+Library5=webviewextras
+Library6=appcompat
+Library7=xmllayoutbuilder
+Library8=audio
+Library9=fabricview
+Library10=icostexttospeech
+Library11=irloadingviews
+Library12=animation
+Library13=phone
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: Kids Learn
+	#VersionCode: 1
+	#VersionName: Beta
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: landscape
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen: True
+	#IncludeTitle: False
+#End Region
+
+Sub Process_Globals
+	'These global variables will be declared once when the application starts.
+	'These variables can be accessed from all modules.
+Dim timer1 As Timer
+Public x1, x2, x3 As String
+
+	Public clicksound As MediaPlayer
+	Public TTS As TTS
+	
+	  Public sql1 As SQL
+	Public cursor1 As Cursor
+	
+End Sub
+
+Sub Globals
+	'These global variables will be redeclared each time the activity is created.
+	'These variables can only be accessed from this module.
+  Dim  introwel As MediaPlayer 
+
+Private IREatBeans1 As IREatBeans
+
+	Dim ProgressBar1 As ProgressBar
+	Dim num As Int
+    	clicksound.Initialize2("clicksound")
+	clicksound.Load(File.DirAssets, "click.mp3")
+
+
+	Private Button1 As Button
+	Private btnScramble As Button
+	Private btnAbout As Button
+
+	Private btnVolume As Button
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	'Do not forget to load the layout file created with the visual designer. For example:
+	Activity.LoadLayout("intro")
+	introwel.Initialize2("introwel")
+	'introwel.Load(File.DirAssets, "intro.mp3")
+	introwel.Load(File.DirAssets, "upinipin.mp3")
+		timer1.Initialize("timer1",50)
+	timer1.Enabled = True
+'	TTS.InitializeTTs("tts", "English")
+	ProgressBar1.Top = 94%y
+	ProgressBar1.Left  = 0%x
+	ProgressBar1.Width = 100%x
+	TTS.Initialize("tts")
+
+	IREatBeans1.startAnim
+	
+	
+End Sub
+
+Sub Activity_Resume
+
+End Sub
+
+Sub Activity_Pause (UserClosed As Boolean)
+
+End Sub
+
+Sub timer1_tick
+num = num +1
+ProgressBar1.Progress = num
+
+If ProgressBar1.Progress == 2 Then
+
+introwel.Play
+
+End If
+
+If ProgressBar1.Progress == 70 Then
+
+'TTS.Speak("This is a Kids Learning Application", True)
+ToastMessageShow("Lets start learning !", True)
+
+End If
+
+
+If ProgressBar1.Progress == 100 Then
+timer1.Enabled = False
+introwel.Stop
+StartActivity("Menu")
+Activity.Finish
+End If
+End Sub
